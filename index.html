@@ -237,13 +237,16 @@
                     <a href="#post-put-and-patch" class="toc-h2 toc-link" data-title="POST, PUT and PATCH">POST, PUT and PATCH</a>
                   </li>
                   <li>
-                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                    <a href="#error-responses" class="toc-h2 toc-link" data-title="Error Responses">Error Responses</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#data-categories" class="toc-h1 toc-link" data-title="Data Categories">Data Categories</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
                   <li>
                     <a href="#get-all-data-categories" class="toc-h2 toc-link" data-title="Get All Data Categories">Get All Data Categories</a>
                   </li>
@@ -265,6 +268,9 @@
             <a href="#kpis" class="toc-h1 toc-link" data-title="KPIs">KPIs</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
+                  <li>
                     <a href="#get-all-kpis" class="toc-h2 toc-link" data-title="Get All KPIs">Get All KPIs</a>
                   </li>
                   <li>
@@ -284,6 +290,9 @@
           <li>
             <a href="#kpi-series" class="toc-h1 toc-link" data-title="KPI Series">KPI Series</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
+                  </li>
                   <li>
                     <a href="#get-all-kpi-series" class="toc-h2 toc-link" data-title="Get All KPI Series">Get All KPI Series</a>
                   </li>
@@ -333,7 +342,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Everperform API Open service</p>
+<p>Everperform Open API</p>
 
 <p><strong>API Version</strong> 1</p>
 
@@ -408,22 +417,22 @@ You must replace <code>&lt;your_token&gt;</code> with your API key.
 <tr>
 <td>id</td>
 <td>Integer, String</td>
-<td>id of the object</td>
+<td>Id of the object</td>
 </tr>
 <tr>
 <td>type</td>
 <td>String</td>
-<td>object type</td>
+<td>Object type</td>
 </tr>
 <tr>
 <td>attributes</td>
 <td>Object</td>
-<td>list of attributes for the object and their values</td>
+<td>List of attributes for the object and its values</td>
 </tr>
 <tr>
 <td>relationships</td>
 <td>RelationshipsObject</td>
-<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+<td>JSON:API Relationships Object, see <a href="https://jsonapi.org/format/#document-resource-object-relationships">Relationships Objects</a></td>
 </tr>
 </tbody></table>
 <h2 id='object-collection-response'>Object Collection Response</h2>
@@ -492,22 +501,22 @@ You must replace <code>&lt;your_token&gt;</code> with your API key.
 <tr>
 <td>id</td>
 <td>Integer, String</td>
-<td>id of the object</td>
+<td>Id of the object</td>
 </tr>
 <tr>
 <td>type</td>
 <td>String</td>
-<td>object type</td>
+<td>Object type</td>
 </tr>
 <tr>
 <td>attributes</td>
 <td>Object</td>
-<td>list of attributes for the object and their values</td>
+<td>List of attributes for the object and its values</td>
 </tr>
 <tr>
 <td>relationships</td>
 <td>RelationshipsObject</td>
-<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+<td>JSON:API Relationships Object, see <a href="https://jsonapi.org/format/#document-resource-object-relationships">Relationships Objects</a></td>
 </tr>
 </tbody></table>
 <h2 id='post-put-and-patch'>POST, PUT and PATCH</h2>
@@ -557,32 +566,32 @@ You must replace <code>&lt;your_token&gt;</code> with your API key.
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Integer, String</td>
-<td>id of the object (may be inherited from request path)</td>
+<td>Integer, String Id of the object (may be inherited from request path)</td>
+<td></td>
 </tr>
 <tr>
 <td>type</td>
 <td>String</td>
-<td>object type (may be inherited from request path)</td>
+<td>Object type (may be inherited from request path)</td>
 </tr>
 <tr>
 <td>attributes</td>
 <td>Object</td>
-<td>list of attributes for the object and their values</td>
+<td>List of attributes for the object and its values</td>
 </tr>
 <tr>
 <td>relationships</td>
 <td>RelationshipsObject</td>
-<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+<td>JSON:API Relationships Object, see <a href="https://jsonapi.org/format/#document-resource-object-relationships">Relationships Objects</a></td>
 </tr>
 </tbody></table>
 <h3 id='object-id-and-type'>Object ID and Type</h3>
-<p>the request path will overide the <code>data/id</code> and <code>data/type</code> fields where applicable</p>
+<p>The request path will overide the <code>data/id</code> and <code>data/type</code> fields where applicable</p>
 
 <p>For example:
-A request on the following path: <code>/open/v1/kpi_series/1</code>
-the id and type are assumed to be <code>1</code> and <code>kpi_series</code> respectively</p>
-<h2 id='errors'>Errors</h2>
+A request on the following path: <code>/open/v1/kpi_series/1</code>,
+the type and id are assumed to be <code>kpi_series</code> and <code>1</code> respectively</p>
+<h2 id='error-responses'>Error Responses</h2>
 <blockquote>
 <p>Error responses are structured like:</p>
 </blockquote>
@@ -606,7 +615,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>JSON:API Error Object, see <a href="https://jsonapi.org/format/#error-objects">Error Objects</a></td>
 </tr>
 </tbody></table>
-<h1 id='data-categories'>Data Categories</h1><h2 id='get-all-data-categories'>Get All Data Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category'</span>
+<h1 id='data-categories'>Data Categories</h1><h2 id='overview'>Overview</h2>
+<p>A Data Category is a container for both KPIs and KPI Series</p>
+<h2 id='get-all-data-categories'>Get All Data Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -662,7 +673,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
-<td>Amount of data categories to load</td>
+<td>Number of data categories to load per page</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-data-category'>Get a Specific Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/1'</span>
@@ -694,7 +705,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a specific Data Category</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/data_category/&lt;ID&gt;</code></p>
+<p><code>GET /api/v1/data_category/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -704,9 +715,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the Data Category to retrieve</td>
+<td>The id of the Data Category to retrieve</td>
 </tr>
 </tbody></table>
 <h2 id='create-a-data-category'>Create a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/'</span>
@@ -758,7 +769,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Name of the Data Category</td>
+<td><code>required</code> Name of the Data Category</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-data-category'>Update a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/2'</span>
@@ -798,7 +809,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint updates an existing Data Category</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PUT /api/v1/data_category/&lt;ID&gt;</code></p>
+<p><code>PUT /api/v1/data_category/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -808,9 +819,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the Data Category to update</td>
+<td>The id of the Data Category to update</td>
 </tr>
 </tbody></table>
 <h3 id='permitted-attributes'>Permitted Attributes</h3>
@@ -824,7 +835,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Name of the Data Category</td>
+<td><code>required</code> Name of the Data Category</td>
 </tr>
 </tbody></table>
 <h2 id='delete-a-data-category'>Delete a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/2'</span>
@@ -833,7 +844,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </code></pre>
 <p>This endpoint deletes a Data Category</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>DELETE /api/v1/data_category/&lt;ID&gt;</code></p>
+<p><code>DELETE /api/v1/data_category/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -843,12 +854,24 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>String</td>
-<td>The ID of the Data Category to delete</td>
+<td>The id of the Data Category to delete</td>
 </tr>
 </tbody></table>
-<h1 id='kpis'>KPIs</h1><h2 id='get-all-kpis'>Get All KPIs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi'</span>
+
+<aside class='warning'>
+Deleting a Data Category will:
+<ul>
+  <li>Delete ALL KPIs that belong to the Data Category</li>
+  <li>Unlink ALL KPI Series from the Data Category</li>
+</ul>
+</aside>
+<h1 id='kpis'>KPIs</h1><h2 id='overview'>Overview</h2>
+<p>KPIs serve as templates shared across all entities of an organisation.</p>
+
+<p>Any value provided for the KPI will be used by the application when extending this KPI to an entity, to build a KPI Series.</p>
+<h2 id='get-all-kpis'>Get All KPIs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -914,7 +937,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
-<td>Amount of kpis to load</td>
+<td>Number of KPIs to load per page</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-kpi'>Get a Specific KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/1'</span>
@@ -956,7 +979,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a specific KPI</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi/&lt;ID&gt;</code></p>
+<p><code>GET /api/v1/kpi/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -966,14 +989,32 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI to retrieve</td>
+<td>The id of the KPI to retrieve</td>
 </tr>
 </tbody></table>
 <h2 id='create-a-kpi'>Create a KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/'</span>
   -X POST
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "Revenue",
+            "symbol": "$",
+            "symbol_label": "AUD",
+            "symbol_prepend": true
+          },
+          "relationships": {
+            "data_category": {
+              "data": {
+                "id": 1,
+                "type": "data_category"
+              }
+            }
+          }
+        }
+      }'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1012,57 +1053,58 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <p>This endpoint creates a new KPI</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /api/v1/kpi/</code></p>
-<h3 id='body-parameters'>Body Parameters</h3>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
 <th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>kpi</td>
-<td>KPI</td>
-<td>KPI Object</td>
-</tr>
-</tbody></table>
-<h3 id='kpi'>KPI</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Name of the KPI</td>
+<td></td>
+<td><code>required</code> Name of the KPI</td>
 </tr>
 <tr>
 <td>description</td>
 <td>String</td>
+<td></td>
 <td>Description of the KPI</td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>String</td>
+<td></td>
 <td>Symbol that represents the KPI values</td>
 </tr>
 <tr>
 <td>symbol_label</td>
 <td>String</td>
+<td></td>
 <td>Label to describe the Symbol</td>
 </tr>
 <tr>
 <td>symbol_prepend</td>
 <td>Boolean</td>
-<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td>true</td>
+<td>Determines whether the symbol is attached to the start(true) or end(false) of the value</td>
 </tr>
+</tbody></table>
+<h3 id='permitted-relationships'>Permitted Relationships</h3>
+<table><thead>
 <tr>
-<td>data_category_id</td>
-<td>Integer</td>
-<td>ID of the Data Category to associate with this KPI</td>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data_category</td>
+<td>data_category</td>
+<td><code>required</code> Data Category to associate with this KPI</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-kpi'>Update a KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/2'</span>
@@ -1124,7 +1166,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint updates an existing KPI</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PUT /api/v1/kpi/&lt;ID&gt;</code></p>
+<p><code>PUT /api/v1/kpi/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1134,9 +1176,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI to update</td>
+<td>The id of the KPI to update</td>
 </tr>
 </tbody></table>
 <h3 id='permitted-attributes'>Permitted Attributes</h3>
@@ -1145,38 +1187,32 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
-<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>name</td>
 <td>String</td>
 <td>Name of the KPI</td>
-<td></td>
 </tr>
 <tr>
 <td>description</td>
 <td>String</td>
 <td>Description of the KPI</td>
-<td></td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>String</td>
 <td>Symbol that represents the KPI values</td>
-<td></td>
 </tr>
 <tr>
 <td>symbol_label</td>
 <td>String</td>
 <td>Label to describe the Symbol</td>
-<td></td>
 </tr>
 <tr>
 <td>symbol_prepend</td>
 <td>Boolean</td>
-<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
-<td></td>
+<td>Determines whether the symbol is attached to the start(<code>true</code>) or end(<code>false</code>) of the value</td>
 </tr>
 </tbody></table>
 <h3 id='permitted-relationships'>Permitted Relationships</h3>
@@ -1199,7 +1235,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </code></pre>
 <p>This endpoint deletes a KPI</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>DELETE /api/v1/kpi/&lt;ID&gt;</code></p>
+<p><code>DELETE /api/v1/kpi/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1209,12 +1245,16 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI to delete</td>
+<td>The id of the KPI to delete</td>
 </tr>
 </tbody></table>
-<h1 id='kpi-series'>KPI Series</h1><h2 id='get-all-kpi-series'>Get All KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series'</span>
+<h1 id='kpi-series'>KPI Series</h1><h2 id='overview'>Overview</h2>
+<p>A KPI series defines a KPI for an entity (User, Team, Organisation).</p>
+
+<p>It may or may not be linked to a KPI.</p>
+<h2 id='get-all-kpi-series'>Get All KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -1296,7 +1336,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
-<td>Amount of KPI Series to load</td>
+<td>Number of KPI Series to load per page</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-kpi-series'>Get a Specific KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1'</span>
@@ -1354,7 +1394,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a specific KPI Series</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi_series/&lt;ID&gt;</code></p>
+<p><code>GET /api/v1/kpi_series/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1364,9 +1404,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI Series to retrieve</td>
+<td>The id of the KPI Series to retrieve</td>
 </tr>
 </tbody></table>
 <h2 id='create-a-kpi-series'>Create a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/'</span>
@@ -1493,6 +1533,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <th>Parameter</th>
 <th>Type</th>
+<th>Default</th>
 <th>Description</th>
 <th>Values</th>
 </tr>
@@ -1500,61 +1541,71 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>name</td>
 <td>String</td>
-<td>Name of the KPI Series</td>
+<td></td>
+<td><code>required</code> Name of the KPI Series</td>
 <td></td>
 </tr>
 <tr>
 <td>description</td>
 <td>String</td>
+<td></td>
 <td>Description of the KPI Series</td>
 <td></td>
 </tr>
 <tr>
 <td>direction</td>
 <td>String</td>
+<td>up</td>
 <td>Determines whether higher values are good or bad</td>
 <td><code>up</code> <code>down</code></td>
 </tr>
 <tr>
 <td>frequency</td>
 <td>String</td>
-<td>Frequency for the KPI Values</td>
+<td></td>
+<td><code>required</code> Frequency for the KPI Values</td>
 <td><code>days</code> <code>weeks</code> <code>months</code> <code>years</code></td>
 </tr>
 <tr>
 <td>aggregate_type</td>
 <td>String</td>
+<td>sum</td>
 <td>Determines how the values are aggregated for reports</td>
 <td><code>sum</code> <code>avg</code></td>
 </tr>
 <tr>
 <td>has_target</td>
 <td>Boolean</td>
-<td>show and allow target values to be used (<code>Default: true</code>)</td>
+<td>true</td>
+<td>Show and allow target values to be used</td>
 <td></td>
 </tr>
 <tr>
 <td>default_target</td>
 <td>Double</td>
-<td>Target to use if no target is provided when creating KPI Values (<code>Default: Null</code>)</td>
+<td></td>
+<td>Target to use if no target is provided when creating KPI Values</td>
 <td></td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>String</td>
+<td></td>
 <td>Symbol that represents the KPI values</td>
 <td></td>
 </tr>
 <tr>
 <td>symbol_label</td>
 <td>String</td>
+<td></td>
 <td>Label to describe the Symbol</td>
 <td></td>
 </tr>
 <tr>
 <td>symbol_prepend</td>
 <td>Boolean</td>
-<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td>true</td>
+<td>Determine whether the symbol is attached to the start(<code>true</code>) or end(<code>false</code>) of the value</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1569,12 +1620,12 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>owner</td>
 <td><code>user</code>, <code>team</code>, <code>organisation</code></td>
-<td>owner of this KPI Series</td>
+<td><code>required</code> Owner of this KPI Series</td>
 </tr>
 <tr>
 <td>responsible</td>
 <td><code>user</code>, <code>team</code>, <code>organisation</code></td>
-<td>ID of the responsible of this KPI Series</td>
+<td>Responsible entity of this KPI Series, Defaults to owner</td>
 </tr>
 <tr>
 <td>kpi</td>
@@ -1588,7 +1639,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </tbody></table>
 
-<aside class="warning">kpi and frequency cannot be changed after creation</aside>
+<aside class="warning"><code>kpi</code> and <code>frequency</code> cannot be changed after creation</aside>
 <h2 id='update-a-kpi-series'>Update a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/2'</span>
   -X PUT
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
@@ -1686,7 +1737,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint updates an existing KPI Series</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>PUT /api/v1/kpi_series/&lt;ID&gt;</code></p>
+<p><code>PUT /api/v1/kpi_series/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1696,9 +1747,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI Series to update</td>
+<td>The id of the KPI Series to update</td>
 </tr>
 </tbody></table>
 <h3 id='permitted-attributes'>Permitted Attributes</h3>
@@ -1737,13 +1788,13 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>has_target</td>
 <td>Boolean</td>
-<td>show and allow target values to be used (<code>Default: true</code>)</td>
+<td>Show and allow target values to be used</td>
 <td></td>
 </tr>
 <tr>
 <td>default_target</td>
 <td>Double</td>
-<td>Target to use if no target is provided when creating KPI Values (<code>Default: Null</code>)</td>
+<td>Target to use if no target is provided when creating KPI Values</td>
 <td></td>
 </tr>
 <tr>
@@ -1761,7 +1812,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>symbol_prepend</td>
 <td>Boolean</td>
-<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td>Determine whether the symbol is attached the the start(<code>true</code>) or end(<code>false</code>) of the value</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -1776,12 +1827,12 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <tr>
 <td>owner</td>
 <td><code>user</code>, <code>team</code>, <code>organisation</code></td>
-<td>owner of this KPI Series</td>
+<td><code>required</code> Owner of this KPI Series</td>
 </tr>
 <tr>
 <td>responsible</td>
 <td><code>user</code>, <code>team</code>, <code>organisation</code></td>
-<td>ID of the responsible of this KPI Series</td>
+<td>Responsible Entity of this KPI Series, Defaults to owner</td>
 </tr>
 <tr>
 <td>data_category</td>
@@ -1795,7 +1846,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </code></pre>
 <p>This endpoint deletes a KPI Series</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>DELETE /api/v1/kpi/&lt;ID&gt;</code></p>
+<p><code>DELETE /api/v1/kpi/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1805,12 +1856,19 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI Series to delete</td>
+<td>The id of the KPI Series to delete</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/values'</span>
+
+<aside class='warning'>
+Deleting a KPI Series will:
+<ul>
+  <li>Delete ALL KPI Values that belong to the KPI Series</li>
+</ul>
+</aside>
+<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/kpi_values?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -1850,8 +1908,22 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a page of KPI Values in a KPI Series.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi_series/&lt;ID&gt;/values</code></p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_series/&lt;id&gt;/kpi_values</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The id of the KPI Series to retrieve KPI Values for</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1871,10 +1943,10 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
-<td>Amount of KPI Values to load</td>
+<td>Number of KPI Values to load per page</td>
 </tr>
 </tbody></table>
-<h1 id='kpi-values'>KPI Values</h1><h2 id='get-all-kpi-values'>Get All KPI Values</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values'</span>
+<h1 id='kpi-values'>KPI Values</h1><h2 id='get-all-kpi-values'>Get All KPI Values</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -1915,7 +1987,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a page of KPI Values.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi_/values</code></p>
+<p><code>GET /api/v1/kpi_values</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1938,7 +2010,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>Amount of KPI Values to load</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/values'</span>
+<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/kpi_values?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -1979,7 +2051,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a page of KPI Values in a KPI Series.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi_series/&lt;ID&gt;/values</code></p>
+<p><code>GET /api/v1/kpi_series/&lt;id&gt;/kpi_values</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -2002,7 +2074,7 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 <td>Amount of KPI Values to load</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-kpi-value'>Get A Specific KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_value/1'</span>
+<h2 id='get-a-specific-kpi-value'>Get A Specific KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values/1'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -2036,9 +2108,9 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </span></code></pre>
 <p>This endpoint retrieves a KPI Value.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /api/v1/kpi_value/&lt;ID&gt;</code></p>
+<p><code>GET /api/v1/kpi_values/&lt;id&gt;</code></p>
 
-<p><code>GET /api/v1/kpi_series/&lt;seriesID&gt;/kpi_value/&lt;ID&gt;</code></p>
+<p><code>GET /api/v1/kpi_series/&lt;series_id&gt;/kpi_values/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2048,14 +2120,14 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
 </tr>
 </thead><tbody>
 <tr>
-<td>seriesID</td>
+<td>series_id</td>
 <td>Integer</td>
-<td><code>optional</code> The ID of the KPI Series</td>
+<td><code>optional</code> The id of the KPI Series</td>
 </tr>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI Value</td>
+<td>The id of the KPI Value</td>
 </tr>
 </tbody></table>
 <h2 id='create-update-a-kpi-value'>Create/Update a KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values'</span>
@@ -2127,20 +2199,19 @@ the id and type are assumed to be <code>1</code> and <code>kpi_series</code> res
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint updates or creates a KPI Value.
+<p>This endpoint creates or updates a KPI Value.
 <aside class="info">
-The <code>kpi_date</code> value is transformed to be the start of the date period based on the frequency of the KPI Series</p>
-
-<p><code>&#39;2018-05-05&#39; -&gt; &#39;2018-05-01&#39; for a monthly kpi</code></p>
-
-<p><code>&#39;2018-05-05&#39; -&gt; &#39;2018-01-01&#39; for a yearly kpi</code></p>
-
-<p>A new KPI Value will be created if no existing KPI Value for the kpi_date and KPI Series exists
+The <code>kpi_date</code> value is transformed to be the start of the date period based on the frequency of the KPI Series
+<ul>
+  <li><code>&#39;2018-05-05&#39; -&gt; &#39;2018-05-01&#39; for a monthly kpi</code></li>
+  <li><code>&#39;2018-05-05&#39; -&gt; &#39;2018-01-01&#39; for a yearly kpi</code></li>
+</ul>
+A new KPI Value will be created if no existing KPI Value for the kpi_date and KPI Series exists
 </aside></p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /api/v1/kpi_values</code></p>
 
-<p><code>POST /api/v1/kpi_series/&lt;seriesID&gt;/values</code></p>
+<p><code>POST /api/v1/kpi_series/&lt;series_id&gt;/kpi_values</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2150,14 +2221,9 @@ The <code>kpi_date</code> value is transformed to be the start of the date perio
 </tr>
 </thead><tbody>
 <tr>
-<td>seriesID</td>
+<td>series_id</td>
 <td>Integer</td>
-<td><code>optional</code> The ID of the KPI Series</td>
-</tr>
-<tr>
-<td>ID</td>
-<td>Integer</td>
-<td>The ID of the KPI Value</td>
+<td><code>optional</code> The id of the KPI Series</td>
 </tr>
 </tbody></table>
 <h3 id='permitted-attributes'>Permitted Attributes</h3>
@@ -2166,28 +2232,26 @@ The <code>kpi_date</code> value is transformed to be the start of the date perio
 <th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
-<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>actual</td>
 <td>Double</td>
 <td>&#39;Actual&#39; Value for the period</td>
-<td></td>
 </tr>
 <tr>
 <td>target</td>
 <td>Double</td>
 <td>&#39;Target&#39; Value for the period, defaults to <code>KPISeries#default_target</code> if null and <code>KPISeries#has_target</code> is true</td>
-<td></td>
 </tr>
 <tr>
 <td>kpi_date</td>
 <td>String</td>
-<td>ISO8601/RFC3339 formatted date <code>YYYY-MM-DD</code></td>
-<td></td>
+<td><code>required</code> ISO8601/RFC3339 formatted date <code>YYYY-MM-DD</code></td>
 </tr>
 </tbody></table>
+
+<aside class='info'>A KPI Value with both Actual and Target set to Null will be marked as deleted</aside>
 <h3 id='permitted-relationships'>Permitted Relationships</h3>
 <table><thead>
 <tr>
@@ -2204,17 +2268,17 @@ The <code>kpi_date</code> value is transformed to be the start of the date perio
 </tbody></table>
 
 <aside class="info">
-KPI Series relationship may be omitted when using the PUT/POST /open/v1/kpi_series/<seriesID>/kpi_values routes
+KPI Series relationship may be omitted when using the <code>PUT/POST /open/v1/kpi_series/&lt;series_id&gt;/kpi_values</code> routes
 </aside>
-<h2 id='delete-a-kpi-value'>Delete A KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_value/1'</span>
+<h2 id='delete-a-kpi-value'>Delete A KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values/1'</span>
   -X DELETE
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <p>This endpoint deletes a specific KPI Value</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>DELETE /api/v1/kpi_value/&lt;ID&gt;</code></p>
+<p><code>DELETE /api/v1/kpi_values/&lt;id&gt;</code></p>
 
-<p><code>DELETE /api/v1/kpi_series/&lt;seriesID&gt;/kpi_value/&lt;ID&gt;</code></p>
+<p><code>DELETE /api/v1/kpi_series/&lt;series_id&gt;/kpi_values/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -2224,14 +2288,14 @@ KPI Series relationship may be omitted when using the PUT/POST /open/v1/kpi_seri
 </tr>
 </thead><tbody>
 <tr>
-<td>seriesID</td>
+<td>series_id</td>
 <td>Integer</td>
-<td><code>optional</code> The ID of the KPI Series</td>
+<td><code>optional</code> The id of the KPI Series</td>
 </tr>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>Integer</td>
-<td>The ID of the KPI Value to delete</td>
+<td>The id of the KPI Value to delete</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
