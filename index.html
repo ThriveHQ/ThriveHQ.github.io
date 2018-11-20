@@ -1,0 +1,2297 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Everperform Open API</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/everperform-logo.svg" class="logo" alt="Everperform logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#examples" class="toc-h1 toc-link" data-title="Examples">Examples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#single-object-response" class="toc-h2 toc-link" data-title="Single Object Response">Single Object Response</a>
+                  </li>
+                  <li>
+                    <a href="#object-collection-response" class="toc-h2 toc-link" data-title="Object Collection Response">Object Collection Response</a>
+                  </li>
+                  <li>
+                    <a href="#post-put-and-patch" class="toc-h2 toc-link" data-title="POST, PUT and PATCH">POST, PUT and PATCH</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#data-categories" class="toc-h1 toc-link" data-title="Data Categories">Data Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-data-categories" class="toc-h2 toc-link" data-title="Get All Data Categories">Get All Data Categories</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-data-category" class="toc-h2 toc-link" data-title="Get a Specific Data Category">Get a Specific Data Category</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-data-category" class="toc-h2 toc-link" data-title="Create a Data Category">Create a Data Category</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-data-category" class="toc-h2 toc-link" data-title="Update a Data Category">Update a Data Category</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-data-category" class="toc-h2 toc-link" data-title="Delete a Data Category">Delete a Data Category</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#kpis" class="toc-h1 toc-link" data-title="KPIs">KPIs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-kpis" class="toc-h2 toc-link" data-title="Get All KPIs">Get All KPIs</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-kpi" class="toc-h2 toc-link" data-title="Get a Specific KPI">Get a Specific KPI</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-kpi" class="toc-h2 toc-link" data-title="Create a KPI">Create a KPI</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-kpi" class="toc-h2 toc-link" data-title="Update a KPI">Update a KPI</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-kpi" class="toc-h2 toc-link" data-title="Delete a KPI">Delete a KPI</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#kpi-series" class="toc-h1 toc-link" data-title="KPI Series">KPI Series</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-kpi-series" class="toc-h2 toc-link" data-title="Get All KPI Series">Get All KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-kpi-series" class="toc-h2 toc-link" data-title="Get a Specific KPI Series">Get a Specific KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-kpi-series" class="toc-h2 toc-link" data-title="Create a KPI Series">Create a KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-kpi-series" class="toc-h2 toc-link" data-title="Update a KPI Series">Update a KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-kpi-series" class="toc-h2 toc-link" data-title="Delete a KPI Series">Delete a KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-kpi-values-in-a-kpi-series" class="toc-h2 toc-link" data-title="Get All KPI Values in a KPI Series">Get All KPI Values in a KPI Series</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#kpi-values" class="toc-h1 toc-link" data-title="KPI Values">KPI Values</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-kpi-values" class="toc-h2 toc-link" data-title="Get All KPI Values">Get All KPI Values</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-kpi-values-in-a-kpi-series" class="toc-h2 toc-link" data-title="Get All KPI Values in a KPI Series">Get All KPI Values in a KPI Series</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-kpi-value" class="toc-h2 toc-link" data-title="Get A Specific KPI Value">Get A Specific KPI Value</a>
+                  </li>
+                  <li>
+                    <a href="#create-update-a-kpi-value" class="toc-h2 toc-link" data-title="Create/Update a KPI Value">Create/Update a KPI Value</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-kpi-value" class="toc-h2 toc-link" data-title="Delete A KPI Value">Delete A KPI Value</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Everperform API Open service</p>
+
+<p><strong>API Version</strong> 1</p>
+
+<p><strong>API Domain</strong> api.everperform.com</p>
+
+<aside class="notice">
+All requests must use https
+</aside>
+
+<p>The Everperform API uses <a href="https://jsonapi.org/">JSON:API</a> spec</p>
+<h1 id='authentication'>Authentication</h1><pre class="highlight shell tab-shell"><code>curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>&lt;your_token&gt;</code> with your API key.</p>
+</blockquote>
+
+<p>Everperform uses API keys to allow access to the API. You can acquire your API key from <a href="https://app.everperform.com/settings/admin/organisation/apikey">API Settings</a>.</p>
+
+<p>Everperform expects the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer &lt;your_token&gt;</code></p>
+
+<aside class="notice">
+You must replace <code>&lt;your_token&gt;</code> with your API key.
+</aside>
+<h1 id='examples'>Examples</h1><h2 id='single-object-response'>Single Object Response</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/object_type/object_id'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>single object requests are returned in the format</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object_type"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"associated_object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object id"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object type"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='root-object'>Root Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>ResourceObject</td>
+<td>JSON:API Resource Object, see <a href="https://jsonapi.org/format/#document-resource-objects">Resource Objects</a></td>
+</tr>
+</tbody></table>
+<h3 id='data-object'>Data Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer, String</td>
+<td>id of the object</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>object type</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>Object</td>
+<td>list of attributes for the object and their values</td>
+</tr>
+<tr>
+<td>relationships</td>
+<td>RelationshipsObject</td>
+<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+</tr>
+</tbody></table>
+<h2 id='object-collection-response'>Object Collection Response</h2>
+<blockquote>
+<p>object collection requests are returned in the format</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object_type"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"associated_object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object id"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object type"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object_type"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"associated_object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object id"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"associated_object type"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='root-object-2'>Root Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Array&lt;ResourceObject&gt;</td>
+<td>array of JSON:API Resource Objects, see <a href="https://jsonapi.org/format/#document-resource-objects">Resource Objects</a></td>
+</tr>
+</tbody></table>
+<h3 id='data-array-item'>Data Array Item</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer, String</td>
+<td>id of the object</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>object type</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>Object</td>
+<td>list of attributes for the object and their values</td>
+</tr>
+<tr>
+<td>relationships</td>
+<td>RelationshipsObject</td>
+<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+</tr>
+</tbody></table>
+<h2 id='post-put-and-patch'>POST, PUT and PATCH</h2>
+<blockquote>
+<p>POST/PUT/PATCH request bodies should be structured like:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/1'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "id": "1",
+          "type": "object_type",
+          "attributes": {
+            "attribute_name": "attribute_value"
+          },
+          "relationships": {
+            "associated_object": {
+              "data": {
+                "id": "associated_object id",
+                "type": "associated_object type"
+              }
+            },
+          }
+        }
+      }'</span>
+</code></pre><h3 id='root-object-3'>Root Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>ResourceObject</td>
+<td>JSON:API Resource Object, see <a href="https://jsonapi.org/format/#document-resource-objects">Resource Objects</a></td>
+</tr>
+</tbody></table>
+<h3 id='data-object-2'>Data Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer, String</td>
+<td>id of the object (may be inherited from request path)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>object type (may be inherited from request path)</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>Object</td>
+<td>list of attributes for the object and their values</td>
+</tr>
+<tr>
+<td>relationships</td>
+<td>RelationshipsObject</td>
+<td>JSON:API Relationships Object, see [Relationships Objects]https://jsonapi.org/format/#document-resource-object-relationships</td>
+</tr>
+</tbody></table>
+<h3 id='object-id-and-type'>Object ID and Type</h3>
+<p>the request path will overide the <code>data/id</code> and <code>data/type</code> fields where applicable</p>
+
+<p>For example:
+A request on the following path: <code>/open/v1/kpi_series/1</code>
+the id and type are assumed to be <code>1</code> and <code>kpi_series</code> respectively</p>
+<h2 id='errors'>Errors</h2>
+<blockquote>
+<p>Error responses are structured like:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error_code"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error details"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='root-object-4'>Root Object</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>errors</td>
+<td>ErrorObject</td>
+<td>JSON:API Error Object, see <a href="https://jsonapi.org/format/#error-objects">Error Objects</a></td>
+</tr>
+</tbody></table>
+<h1 id='data-categories'>Data Categories</h1><h2 id='get-all-data-categories'>Get All Data Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Productivity"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of data categories.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/data_category</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of data categories to load</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-data-category'>Get a Specific Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/1'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Productivity"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific Data Category</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/data_category/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the Data Category to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-data-category'>Create a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/'</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "New Category"
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Category"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new Data Category</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/v1/data_category/</code></p>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the Data Category</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-data-category'>Update a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/2'</span>
+  -X PUT
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "New Name"
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-16T06:04:45.245Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Name"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an existing Data Category</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT /api/v1/data_category/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the Data Category to update</td>
+</tr>
+</tbody></table>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the Data Category</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-data-category'>Delete a Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/2'</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<p>This endpoint deletes a Data Category</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>DELETE /api/v1/data_category/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>String</td>
+<td>The ID of the Data Category to delete</td>
+</tr>
+</tbody></table>
+<h1 id='kpis'>KPIs</h1><h2 id='get-all-kpis'>Get All KPIs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable Hours"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Hours"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of KPIs.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of kpis to load</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-kpi'>Get a Specific KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/1'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific KPI</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-kpi'>Create a KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/'</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revenue"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new KPI</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/v1/kpi/</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>kpi</td>
+<td>KPI</td>
+<td>KPI Object</td>
+</tr>
+</tbody></table>
+<h3 id='kpi'>KPI</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the KPI</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Description of the KPI</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>String</td>
+<td>Symbol that represents the KPI values</td>
+</tr>
+<tr>
+<td>symbol_label</td>
+<td>String</td>
+<td>Label to describe the Symbol</td>
+</tr>
+<tr>
+<td>symbol_prepend</td>
+<td>Boolean</td>
+<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+</tr>
+<tr>
+<td>data_category_id</td>
+<td>Integer</td>
+<td>ID of the Data Category to associate with this KPI</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-kpi'>Update a KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/2'</span>
+  -X PUT
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "New Name",
+            "description": "New Description",
+            "symbol": "¥",
+            "symbol_label": "JPY",
+            "symbol_prepend": true
+          },
+          "relationships": {
+            "data_category": {
+              "data": {
+                "id": 2,
+                "type": "data_category"
+              }
+            }
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-11T20:58:05.867Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"¥"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an existing KPI</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT /api/v1/kpi/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI to update</td>
+</tr>
+</tbody></table>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the KPI</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Description of the KPI</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>String</td>
+<td>Symbol that represents the KPI values</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_label</td>
+<td>String</td>
+<td>Label to describe the Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_prepend</td>
+<td>Boolean</td>
+<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='permitted-relationships'>Permitted Relationships</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data_category</td>
+<td>data_category</td>
+<td>Data Category to associate with this KPI</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-kpi'>Delete a KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/2'</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<p>This endpoint deletes a KPI</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>DELETE /api/v1/kpi/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI to delete</td>
+</tr>
+</tbody></table>
+<h1 id='kpi-series'>KPI Series</h1><h2 id='get-all-kpi-series'>Get All KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable Hours"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"aggregate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"default_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hours"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"kpi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of KPI Series.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_series</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of KPI Series to load</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-kpi-series'>Get a Specific KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aggregate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sum"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"kpi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific KPI Series</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_series/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Series to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-kpi-series'>Create a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/'</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "Billable Hours",
+            "description": "",
+            "aggregate_type": "avg",
+            "direction": "up",
+            "frequency": "months",
+            "has_target": true,
+            "default_target": "5.0",
+            "symbol": "H",
+            "symbol_label": "Hours",
+            "symbol_prepend": false
+          },
+          "relationships": {
+            "data_category": {
+              "data": {
+                "id": 2,
+                "type": "data_category"
+              }
+            },
+            "kpi": {
+              "data": {
+                "id": 3,
+                "type": "kpi"
+              }
+            },
+            "owner": {
+              "data": {
+                "id": 1,
+                "type": "user"
+              }
+            },
+            "responsible": {
+              "data": {
+                "id": 1,
+                "type": "team"
+              }
+            }
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Billable Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aggregate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sum"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hours"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"kpi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new KPI Series</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/v1/kpi_series/</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>kpi_series</td>
+<td>KPISeries</td>
+<td>KPI Series Object</td>
+</tr>
+</tbody></table>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the KPI Series</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Description of the KPI Series</td>
+<td></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>String</td>
+<td>Determines whether higher values are good or bad</td>
+<td><code>up</code> <code>down</code></td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>String</td>
+<td>Frequency for the KPI Values</td>
+<td><code>days</code> <code>weeks</code> <code>months</code> <code>years</code></td>
+</tr>
+<tr>
+<td>aggregate_type</td>
+<td>String</td>
+<td>Determines how the values are aggregated for reports</td>
+<td><code>sum</code> <code>avg</code></td>
+</tr>
+<tr>
+<td>has_target</td>
+<td>Boolean</td>
+<td>show and allow target values to be used (<code>Default: true</code>)</td>
+<td></td>
+</tr>
+<tr>
+<td>default_target</td>
+<td>Double</td>
+<td>Target to use if no target is provided when creating KPI Values (<code>Default: Null</code>)</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>String</td>
+<td>Symbol that represents the KPI values</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_label</td>
+<td>String</td>
+<td>Label to describe the Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_prepend</td>
+<td>Boolean</td>
+<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='permitted-relationships'>Permitted Relationships</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>owner</td>
+<td><code>user</code>, <code>team</code>, <code>organisation</code></td>
+<td>owner of this KPI Series</td>
+</tr>
+<tr>
+<td>responsible</td>
+<td><code>user</code>, <code>team</code>, <code>organisation</code></td>
+<td>ID of the responsible of this KPI Series</td>
+</tr>
+<tr>
+<td>kpi</td>
+<td>kpi</td>
+<td>KPI to associate with this KPI Series</td>
+</tr>
+<tr>
+<td>data_category</td>
+<td>data_category</td>
+<td>Data Category to associate with this KPI Series</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">kpi and frequency cannot be changed after creation</aside>
+<h2 id='update-a-kpi-series'>Update a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/2'</span>
+  -X PUT
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "name": "New Name",
+            "description": "New Description",
+            "aggregate_type": "avg",
+            "direction": "up",
+            "has_target": true,
+            "default_target": "5.0",
+            "symbol": "¥",
+            "symbol_label": "JPY",
+            "symbol_prepend": true
+          },
+          "relationships": {
+            "data_category": {
+              "data": {
+                "id": 5,
+                "type": "data_category"
+              }
+            },
+            "owner": {
+              "data": {
+                "id": 1,
+                "type": "user"
+              }
+            },
+            "responsible": {
+              "data": {
+                "id": 1,
+                "type": "team"
+              }
+            }
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-04T06:34:06.911Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"months"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aggregate_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"has_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_target"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"¥"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"symbol_prepend"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"responsible"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"data_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_category"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"kpi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"organisation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an existing KPI Series</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT /api/v1/kpi_series/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Series to update</td>
+</tr>
+</tbody></table>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Name of the KPI Series</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Description of the KPI Series</td>
+<td></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>String</td>
+<td>Determines whether higher values are good or bad</td>
+<td><code>up</code> <code>down</code></td>
+</tr>
+<tr>
+<td>aggregate_type</td>
+<td>String</td>
+<td>Determines how the values are aggregated for reports</td>
+<td><code>sum</code> <code>avg</code></td>
+</tr>
+<tr>
+<td>has_target</td>
+<td>Boolean</td>
+<td>show and allow target values to be used (<code>Default: true</code>)</td>
+<td></td>
+</tr>
+<tr>
+<td>default_target</td>
+<td>Double</td>
+<td>Target to use if no target is provided when creating KPI Values (<code>Default: Null</code>)</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>String</td>
+<td>Symbol that represents the KPI values</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_label</td>
+<td>String</td>
+<td>Label to describe the Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>symbol_prepend</td>
+<td>Boolean</td>
+<td>Determine whether the symbol is attached the the start or end of the value (<code>default: true</code>)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='permitted-relationships'>Permitted Relationships</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>owner</td>
+<td><code>user</code>, <code>team</code>, <code>organisation</code></td>
+<td>owner of this KPI Series</td>
+</tr>
+<tr>
+<td>responsible</td>
+<td><code>user</code>, <code>team</code>, <code>organisation</code></td>
+<td>ID of the responsible of this KPI Series</td>
+</tr>
+<tr>
+<td>data_category</td>
+<td>data_category</td>
+<td>Data Category to associate with this KPI Series</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-kpi-series'>Delete a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/2'</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<p>This endpoint deletes a KPI Series</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>DELETE /api/v1/kpi/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Series to delete</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/values'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_value"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kpi_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"kpi_series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of KPI Values in a KPI Series.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_series/&lt;ID&gt;/values</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of KPI Values to load</td>
+</tr>
+</tbody></table>
+<h1 id='kpi-values'>KPI Values</h1><h2 id='get-all-kpi-values'>Get All KPI Values</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_value"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kpi_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"kpi_series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of KPI Values.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_/values</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of KPI Values to load</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/values'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_value"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kpi_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"kpi_series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a page of KPI Values in a KPI Series.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_series/&lt;ID&gt;/values</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>Integer</td>
+<td>1</td>
+<td>Page number to load</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Integer</td>
+<td>20</td>
+<td>Amount of KPI Values to load</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-kpi-value'>Get A Specific KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_value/1'</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_value"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"83.4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kpi_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"kpi_series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a KPI Value.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /api/v1/kpi_value/&lt;ID&gt;</code></p>
+
+<p><code>GET /api/v1/kpi_series/&lt;seriesID&gt;/kpi_value/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>seriesID</td>
+<td>Integer</td>
+<td><code>optional</code> The ID of the KPI Series</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Value</td>
+</tr>
+</tbody></table>
+<h2 id='create-update-a-kpi-value'>Create/Update a KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values'</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "actual": "123.213",
+            "target": null,
+            "kpi_date": "2018-05-05"
+          },
+          "relationships": {
+            "kpi_series": {
+              "data": {
+                "id": 1,
+                "type": "kpi_series"
+              }
+            }
+          }
+        }
+      }'</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/kpi_values'</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+  -d <span class="s1">'{
+        "data": {
+          "attributes": {
+            "actual": "123.213",
+            "target": null,
+            "kpi_date": "2018-05-05"
+          }
+        }
+      }'</span>
+</code></pre>
+<blockquote>
+<p>Either of the above commands returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_value"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-01T10:30:05.750Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-01T11:34:21.120Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"destroyed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"target"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actual"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.213"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kpi_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"kpi_series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpi_series"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates or creates a KPI Value.
+<aside class="info">
+The <code>kpi_date</code> value is transformed to be the start of the date period based on the frequency of the KPI Series</p>
+
+<p><code>&#39;2018-05-05&#39; -&gt; &#39;2018-05-01&#39; for a monthly kpi</code></p>
+
+<p><code>&#39;2018-05-05&#39; -&gt; &#39;2018-01-01&#39; for a yearly kpi</code></p>
+
+<p>A new KPI Value will be created if no existing KPI Value for the kpi_date and KPI Series exists
+</aside></p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/v1/kpi_values</code></p>
+
+<p><code>POST /api/v1/kpi_series/&lt;seriesID&gt;/values</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>seriesID</td>
+<td>Integer</td>
+<td><code>optional</code> The ID of the KPI Series</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Value</td>
+</tr>
+</tbody></table>
+<h3 id='permitted-attributes'>Permitted Attributes</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Values</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>actual</td>
+<td>Double</td>
+<td>&#39;Actual&#39; Value for the period</td>
+<td></td>
+</tr>
+<tr>
+<td>target</td>
+<td>Double</td>
+<td>&#39;Target&#39; Value for the period, defaults to <code>KPISeries#default_target</code> if null and <code>KPISeries#has_target</code> is true</td>
+<td></td>
+</tr>
+<tr>
+<td>kpi_date</td>
+<td>String</td>
+<td>ISO8601/RFC3339 formatted date <code>YYYY-MM-DD</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='permitted-relationships'>Permitted Relationships</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>kpi_series</td>
+<td>kpi_series</td>
+<td>KPI Series that the KPI Value belongs to</td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+KPI Series relationship may be omitted when using the PUT/POST /open/v1/kpi_series/<seriesID>/kpi_values routes
+</aside>
+<h2 id='delete-a-kpi-value'>Delete A KPI Value</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_value/1'</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
+</code></pre>
+<p>This endpoint deletes a specific KPI Value</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>DELETE /api/v1/kpi_value/&lt;ID&gt;</code></p>
+
+<p><code>DELETE /api/v1/kpi_series/&lt;seriesID&gt;/kpi_value/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>seriesID</td>
+<td>Integer</td>
+<td><code>optional</code> The ID of the KPI Series</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Integer</td>
+<td>The ID of the KPI Value to delete</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>Everperform uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>Your API key is incorrect or expired.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>You cannot access this resource.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The resource could not be found.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity</td>
+<td>Your request could not be processed</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests</td>
+<td>You&#39;ve exceeded your request quota</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+<td>We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
