@@ -6,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Everperform Open API</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -244,9 +244,6 @@
           <li>
             <a href="#data-categories" class="toc-h1 toc-link" data-title="Data Categories">Data Categories</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#overview" class="toc-h2 toc-link" data-title="Overview">Overview</a>
-                  </li>
                   <li>
                     <a href="#get-all-data-categories" class="toc-h2 toc-link" data-title="Get All Data Categories">Get All Data Categories</a>
                   </li>
@@ -615,9 +612,7 @@ the type and id are assumed to be <code>kpi_series</code> and <code>1</code> res
 <td>JSON:API Error Object, see <a href="https://jsonapi.org/format/#error-objects">Error Objects</a></td>
 </tr>
 </tbody></table>
-<h1 id='data-categories'>Data Categories</h1><h2 id='overview'>Overview</h2>
-<p>A Data Category is a container for both KPIs and KPI Series</p>
-<h2 id='get-all-data-categories'>Get All Data Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category?page=1&amp;per_page=20'</span>
+<h1 id='data-categories'>Data Categories</h1><h2 id='get-all-data-categories'>Get All Data Categories</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category?page=1&amp;per_page=20'</span>
   -H <span class="s2">"Authorization: Bearer &lt;your_token&gt;"</span>
 </code></pre>
 <blockquote>
@@ -661,6 +656,7 @@ the type and id are assumed to be <code>kpi_series</code> and <code>1</code> res
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -668,12 +664,35 @@ the type and id are assumed to be <code>kpi_series</code> and <code>1</code> res
 <td>Integer</td>
 <td>1</td>
 <td>Page number to load</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
 <td>Number of data categories to load per page</td>
+<td></td>
+</tr>
+<tr>
+<td>name_query</td>
+<td>String</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>id</td>
+<td>Sorts the results by the given field</td>
+<td><code>id</code> <code>name</code> <code>created_at</code> <code>updated_at</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>String</td>
+<td>asc</td>
+<td>Specifies the sort direction</td>
+<td><code>asc</code> <code>desc</code></td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-data-category'>Get a Specific Data Category</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/data_category/1'</span>
@@ -925,6 +944,7 @@ Deleting a Data Category will:
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -932,12 +952,35 @@ Deleting a Data Category will:
 <td>Integer</td>
 <td>1</td>
 <td>Page number to load</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
 <td>Number of KPIs to load per page</td>
+<td></td>
+</tr>
+<tr>
+<td>name_query</td>
+<td>String</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>id</td>
+<td>Sorts the results by the given field</td>
+<td><code>id</code> <code>name</code> <code>created_at</code> <code>updated_at</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>String</td>
+<td>asc</td>
+<td>Specifies the sort direction</td>
+<td><code>asc</code> <code>desc</code></td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-kpi'>Get a Specific KPI</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi/1'</span>
@@ -1324,6 +1367,7 @@ Deleting a Data Category will:
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1331,12 +1375,63 @@ Deleting a Data Category will:
 <td>Integer</td>
 <td>1</td>
 <td>Page number to load</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
 <td>Number of KPI Series to load per page</td>
+<td></td>
+</tr>
+<tr>
+<td>name_query</td>
+<td>String</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td></td>
+</tr>
+<tr>
+<td>owner_id_query</td>
+<td>Integer</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td></td>
+</tr>
+<tr>
+<td>owner_type_query</td>
+<td>String</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td><code>User</code> <code>Team</code> <code>Organisation</code></td>
+</tr>
+<tr>
+<td>responsible_id_query</td>
+<td>Integer</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td></td>
+</tr>
+<tr>
+<td>responsible_type_query</td>
+<td>String</td>
+<td></td>
+<td>Filters results to those containing the given query</td>
+<td><code>User</code> <code>Team</code> <code>Organisation</code></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>id</td>
+<td>Sorts the results by the given field</td>
+<td><code>id</code> <code>name</code> <code>created_at</code> <code>updated_at</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>String</td>
+<td>asc</td>
+<td>Specifies the sort direction</td>
+<td><code>asc</code> <code>desc</code></td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-kpi-series'>Get a Specific KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1'</span>
@@ -1931,6 +2026,7 @@ Deleting a KPI Series will:
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1938,12 +2034,28 @@ Deleting a KPI Series will:
 <td>Integer</td>
 <td>1</td>
 <td>Page number to load</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
 <td>Number of KPI Values to load per page</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>id</td>
+<td>Sorts the results by the given field</td>
+<td><code>id</code> <code>created_at</code> <code>updated_at</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>String</td>
+<td>asc</td>
+<td>Specifies the sort direction</td>
+<td><code>asc</code> <code>desc</code></td>
 </tr>
 </tbody></table>
 <h1 id='kpi-values'>KPI Values</h1><h2 id='get-all-kpi-values'>Get All KPI Values</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_values?page=1&amp;per_page=20'</span>
@@ -1995,6 +2107,7 @@ Deleting a KPI Series will:
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2002,12 +2115,28 @@ Deleting a KPI Series will:
 <td>Integer</td>
 <td>1</td>
 <td>Page number to load</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Integer</td>
 <td>20</td>
 <td>Amount of KPI Values to load</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>id</td>
+<td>Sorts the results by the given field</td>
+<td><code>id</code> <code>created_at</code> <code>updated_at</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>String</td>
+<td>asc</td>
+<td>Specifies the sort direction</td>
+<td><code>asc</code> <code>desc</code></td>
 </tr>
 </tbody></table>
 <h2 id='get-all-kpi-values-in-a-kpi-series'>Get All KPI Values in a KPI Series</h2><pre class="highlight shell tab-shell"><code>curl <span class="s1">'/api/v1/kpi_series/1/kpi_values?page=1&amp;per_page=20'</span>
